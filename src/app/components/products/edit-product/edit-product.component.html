@@ -1,0 +1,29 @@
+<div>
+    <h4 class="text-center">Edit User Form</h4>
+    <form [formGroup]="productForm" (ngSubmit)="onFormSubmit()">
+        <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text" class="form-control" formControlName="productName">
+        </div>
+        <div class="form-group">
+            <label for="productStatus">Product Status</label>
+            <select name="" id="" formControlName="productStatus" class="form-control">
+                <option value="In-Progress">In-Progress</option>
+                <option value="Dispatched">Dispatched</option>
+                <option value="Delivered">Delivered</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="userRole">Product Return Policy</label>
+            <select name="" id="" formControlName="canReturn" class="form-control">
+                <option value="0">0 - No Return</option>
+                <option value="1">1- Return</option>
+            </select>
+        </div>
+        <div class="text-right">
+            <button class="btn btn-info" type="button" *ngIf="isInEditMode"
+            (click)="onUserUpdate()">Update Product</button>
+            <button class="btn btn-info" type="submit" *ngIf="!isInEditMode">Add Product</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header text-center">
+        <h4>User Information</h4>
+    </div>
+    <div class="card-content p-3">
+        <p>
+           <strong>User Name : </strong> {{userObj.userName}}
+        </p>
+        <p>
+            <strong>User Role : </strong> {{userObj.userRole}}
+        </p>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+        <button class="btn btn-info" [routerLink]="['edit']">Edit</button>
+        <button class="btn btn-danger" (click)="deleteUser()">Delete</button>
+    </div>
+</div>

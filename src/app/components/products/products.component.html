@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-10 text-right">
+        <button class="btn btn-info" [routerLink]="['/products','addProduct']">Add Product</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-5" *ngIf="productsInfo;else noProducts">
+       <ul class="list-group">
+        <li class="list-group-item" *ngFor="let product of productsInfo"
+        [routerLink]="['/products',product.productId]"
+        [queryParams]="{canReturn : product.canReturn}"
+        (click)="selId = product.productId"
+        [ngClass]="{active : product.productId == selId}">
+            {{product.productName}}
+        </li>
+       </ul>
+    </div>
+    <div class="col-md-7">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<ng-template #noProducts>
+    <p class="alert alert-info">No Products Added Yet!</p>
+</ng-template>
+
